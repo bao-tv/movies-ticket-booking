@@ -1,10 +1,11 @@
 import React from 'react';
-import './BookingTicket.scss';
 import {useParams} from 'react-router-dom';
 import {useSelector } from "react-redux";
+
+import style from './BookingTicket.module.scss';
 // import Seat from './Seat/Seat';
 // import SeatSelect from './SeatSelect/SeatSelect';
-import {apiListTicket} from '../../apis/dsVeAPI'
+import {apiListTicket} from '../../apis/dsVeAPI';
 
 function BookingTicket() {
   const maLichChieu =  useParams();
@@ -14,14 +15,22 @@ function BookingTicket() {
 
   if(user) {
       return (
-        <div className="container-fluid movie">
+        <div className={`container-fluid ${style.movie}`}>
             <div className="row">
                 <div className="col-8">
                     <h1 className='text-center text-warning my-4'>ĐẶT VÉ XEM FILM</h1>
-                    <h4 className='text-center text-light'>Màn hình</h4>
-                    <div className="screen"></div>
+                    <div className='bg-bg-dark-color'>
+                      <h4 className='text-center text-light'>Màn hình</h4>
+                      <div className={style.screen}></div>
                     {/* <div>{maLichChieu}</div> */}
                     {/* <Seat /> */}
+                      <div className={style.seatTypes}>
+                        <div className={`${style.seatBooked} ${style.iconSeat}`}>Đã đặt</div>
+                        <div className={`${style.seatVip} ${style.iconSeat} `}>VIP</div>
+                        <div className={`${style.seatNormal} ${style.iconSeat} `}>thường</div>
+                        <div className={`${style.seatYourChoice} ${style.iconSeat} `}>Đã chọn</div>
+                      </div>
+                    </div>
                 </div>
                 <div className="col-4">
                     {/* <SeatSelect /> */}

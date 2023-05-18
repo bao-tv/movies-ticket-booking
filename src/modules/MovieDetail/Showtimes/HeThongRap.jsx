@@ -26,10 +26,12 @@ function HeThongRap({heThongCumRap,movieID}) {
     getInfoCumRap();
   },[heThongCumRap]);
   debugger
-  useEffect(() =>{
-    setLichChieu(cumRap[0]?.heThongRapChieu[0]);
-    // console.log(cumRap[0]?.heThongRapChieu[0]);
-  },[cumRap]);
+
+  useEffect(()=>{
+    if(cumRap.length>0){
+      setLichChieu(cumRap?.heThongCumRap);
+    }
+  })
 
    const getInfoCumRap = async () => {
     try {
@@ -42,41 +44,48 @@ function HeThongRap({heThongCumRap,movieID}) {
     }
   }
   const renderCumRap = () => {
-    return cumRap.heThongRapChieu?.map((heThongRap,index)=>(
-        <div key={index}>
-            {heThongRap.cumRapChieu?.map((cumRap,index) => (
+    return cumRap.heThongRapChieu?.map((heThongRap,index)=>{
+      console.log("heThongRap", heThongRap);
+      if (heThongRap.maHeThongRap === heThongCumRap.maHeThongRap){
+        return(
+          <div key={index}>
+            {heThongRap.cumRapChieu?.map((cumRap,index) => {
+              return(
                 <div className={` ${lichChieu === cumRap? style.choice : ''}`} key={index} onClick={() => setLichChieu(cumRap)}>
-                    <div className={style.tenCumRap}>
-                    <div className={style.logo}>
-                        <img src={heThongRap.logo} alt={style.maCumRap}/>
+                <div className={style.tenCumRap}>
+                <div className={style.logo}>
+                    <img src={heThongRap.logo} alt={style.maCumRap}/>
+                </div>
+                    <div className={style.nameRap}>
+                        <span>{cumRap?.tenCumRap}</span>
+                        <div className={style.address}>{cumRap.diaChi}</div>
                     </div>
-                        <div className={style.nameRap}>
-                            <span>{cumRap?.tenCumRap}</span>
-                            <div className={style.address}>{cumRap.diaChi}</div>
-                        </div>
-                    <div className={style.icon}>
-                      <i className="bi bi-chevron-right"></i>
-                      </div>
-                    </div>
-                    {lichChieu?.maCumRap === cumRap.maCumRap && (
-                      <div className="selected-button">
-                        {cumRap.lichChieuPhim?.map((lichChieuFilm, index) => (
-                          <Button
-                            className={`mb-2 mx-2 mt-2 ${style.times}`}
-                            variant="outline-primary"
-                            key={index}
-                            size="sm"
-                            onClick={() => navigate(`/booking/${lichChieuFilm.maLichChieu}`)}
-                            >
-                            {lichChieuFilm.ngayChieuGioChieu}
-                          </Button>
-                            ))}
-                      </div>
-                    )}
-                </div>  
-            ))}
-        </div>
-    ))
+                <div className={style.icon}>
+                  <i className="bi bi-chevron-right"></i>
+                  </div>
+                </div>
+                {lichChieu?.maCumRap === cumRap.maCumRap && (
+                  <div className="selected-button">
+                    {cumRap.lichChieuPhim?.map((lichChieuFilm, index) => (
+                      <Button
+                        className={`mb-2 mx-2 mt-2 ${style.times}`}
+                        variant="outline-primary"
+                        key={index}
+                        size="sm"
+                        onClick={() => navigate(`/booking/${lichChieuFilm.maLichChieu}`)}
+                        >
+                        {lichChieuFilm.ngayChieuGioChieu}
+                      </Button>
+                        ))}
+                  </div>
+                )}
+            </div>  
+              )
+            })}
+          </div>
+        )
+      }
+    })
   }
 
   

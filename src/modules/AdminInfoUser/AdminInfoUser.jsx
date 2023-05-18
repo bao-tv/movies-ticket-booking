@@ -34,6 +34,7 @@ function AdminInfoUser() {
     const [passShow, setPassShow] = useState(false);
 
     const [updateUser, setUpdateUser] = useState(null);
+    console.log(updateUser);
     // console.log(updateUser);
     const [err, setErr] = useState(null);
 
@@ -82,7 +83,7 @@ function AdminInfoUser() {
         })
     },[infoUser]);
 
-
+    
     const onErrer = (err) => {
         console.log(err);
     }

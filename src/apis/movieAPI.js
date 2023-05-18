@@ -1,13 +1,21 @@
-import axiosClient from "./axiosClient";
+import axiosClient, {maNhom} from "./axiosClient";
 
 
 // lấy ds lịch chiếu phim
 export const apiGetMovies = async () => {
     const {data} = await axiosClient.get('/QuanLyPhim/LayDanhSachPhim', {
         params: {
-            maNhom: 'GP03',
+            maNhom: maNhom,
         }
     });
+    return data;
+};
+
+// lấy ds lịch chiếu phim theo trang
+export const apiGetMoviesPages = async (value) => {
+    const payload = {...value, maNhom};
+    // console.log(value);
+    const {data} = await axiosClient.get('/QuanLyPhim/LayDanhSachPhimPhanTrang',{params: payload});
     return data;
 };
 
@@ -49,7 +57,6 @@ export const apiGetCinema = async (maHeThongRap) => {
     return data;
 };
 
-// Lấy thông tin thời gian chiếu phim theo id phim
 export const apiMovieHours = async (movieID) => {
     const {data} = await axiosClient.get('/QuanLyRap/LayThongTinLichChieuPhim', {
         params: {
@@ -58,3 +65,31 @@ export const apiMovieHours = async (movieID) => {
     });
     return data;
 };
+
+// update phim
+export const apiCapNhatPhimUpload = async (value) => {
+    const {data} = await axiosClient.post('/QuanLyPhim/CapNhatPhimUpload',value);
+    return data;
+}
+
+// xóa phim
+export const apiXoaPhim = async (movieID) => {
+    const {data} = await axiosClient.delete('/QuanLyPhim/XoaPhim', {
+        params: {
+            MaPhim: movieID,
+        }});
+    return data;
+}
+
+// add new phim
+export const apiThemPhimUploadHinh = async (movie) => {
+    const formData = new FormData();
+    for (const key in movie) {
+        formData.append(key, movie[key]);
+        }
+    formData.append("maNhom", "GP03");
+        console.log(formData);
+    const {data} = await axiosClient.post('/QuanLyPhim/ThemPhimUploadHinh',formData);
+    return data;
+}
+

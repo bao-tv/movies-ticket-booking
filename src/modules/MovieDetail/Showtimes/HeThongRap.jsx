@@ -25,7 +25,6 @@ function HeThongRap({heThongCumRap,movieID}) {
   useEffect(() =>{
     getInfoCumRap();
   },[heThongCumRap]);
-  debugger
 
   useEffect(()=>{
     if(cumRap.length>0){

@@ -45,7 +45,7 @@
 
             .playingMovieImg {
                 height: 300px;
-                object-fit: contain;
+                object-fit: cover;
                 cursor: pointer;
                 position: relative;
             }
@@ -137,7 +137,5 @@
           }
     }
 }
-
-
 
 

@@ -65,19 +65,18 @@ function PlayingMovies() {
           {movies.map((item, index) => {
             // console.log(item.trailer);
             return (
-              <SwiperSlide key={item.maPhim} className="swiperPlayingMovies-slide -mx-5">
-                <Card style={{ width: '18rem', backgroundColor: 'transparent'}} >
+              <SwiperSlide key={item.maPhim} className="swiperPlayingMovies-slide h-auto mx-5 custom-slide">
+                <Card style={{backgroundColor: 'transparent'}} >
                   <div className="playingMovieHeader">
-                    <Card.Img variant="top" className="playingMovieImg" src={item.hinhAnh} alt={item.biDanh} onClick={() => navigate(`/movie/${item.maPhim}`)}/>
+                    <Card.Img variant="top" className="playingMovieImg" src={item.hinhAnh} alt={item.biDanh} onClick={() => navigate(`/movies/${item.maPhim}`)}/>
                     <p className="numMovies">{index+1}</p>
                     {item.hot && <img className="hotMovies" src="https://cse.tlu.edu.vn/Portals/0/icon-hot.png" alt="" />}
                     <div className="playTrailerMovie">
                       {(item.trailer) && <BtnPlay wh={'50'} urlMovie={item.trailer}/>}
-                    </div>
-                    
+                    </div>               
                   </div>
                   <Card.Body className="text-white mt-2 p-0">
-                    <a href="#" className="infoMovies text-start" onClick={() => navigate(`/movie/${item.maPhim}`)}>
+                    <a href="#" className="infoMovies text-start" onClick={() => navigate(`/movies/${item.maPhim}`)}>
                       <Card.Title className="nameMovie">
                         {item.tenPhim}
                      </Card.Title>
@@ -89,7 +88,6 @@ function PlayingMovies() {
                       <i className="bi bi-hand-thumbs-up text-success me-2"></i>
                       <span className="text-light">{item.danhGia}</span>
                     </div>
-                    
                   </Card.Body>
                 </Card>
               </SwiperSlide>

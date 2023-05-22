@@ -61,7 +61,7 @@ function CumRap({heThongCumRap}) {
   if(err) return null;
   return (
     <div className="row">
-        <div className={`${style.left} col-4`}>
+        <div className={`${style.left} col-sm-4`}>
           {/* render cụm rạp CGV, Galaxy... */}
         <Swiper
            direction={"vertical"}
@@ -83,7 +83,7 @@ function CumRap({heThongCumRap}) {
         </Swiper>
             
         </div>
-        <div className={`col-8 ${style.right}`}>
+        <div className={`col-sm-8 ${style.right}`}>
           <Swiper
             direction={"vertical"}
             slidesPerView={"auto"}

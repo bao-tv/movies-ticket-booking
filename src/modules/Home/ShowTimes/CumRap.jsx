@@ -3,6 +3,8 @@ import {useNavigate} from 'react-router-dom'
 import {apiGetCinema} from "../../../apis/movieAPI";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Button } from 'react-bootstrap';
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -117,8 +119,16 @@ function CumRap({heThongCumRap}) {
                                         {item.lstLichChieuTheoPhim.map((timeShow, index) => {
                                           // console.log(timeShow);
                                             return(
-                                                <div className="col-3 px-1" key={index}>
-                                                    <div className={style.showTimeMovieDetail} onClick={() => navigate(`/booking/${timeShow.maLichChieu}`)}><span>{timeShow.ngayChieuGioChieu}</span></div>
+                                                <div className="col-sm-2 px-1" key={index}>
+                                                    <Button
+                                                      className={`mb-2 mx-2 mt-2 ${style.times}`}
+                                                      variant="outline-primary"
+                                                      key={index}
+                                                      size="sm"
+                                                      onClick={() => navigate(`/booking/${timeShow.maLichChieu}`)}
+                                                      >
+                                                      {timeShow.ngayChieuGioChieu}
+                                                    </Button>
                                                 </div>
                                             )
                                         })}

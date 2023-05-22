@@ -59,13 +59,21 @@ function PlayingMovies() {
             delay: 5000,
             disableOnInteraction: false,
           }}
+          breakpoints={{
+            1024: {
+              slidesPerView:5,
+            },
+            300:{
+              slidesPerView:1,
+            },
+          }}
           modules={[Pagination, Navigation, Autoplay]}
           className='swiperPlayingMovies'
         >
           {movies.map((item, index) => {
             // console.log(item.trailer);
             return (
-              <SwiperSlide key={item.maPhim} className="swiperPlayingMovies-slide h-auto mx-5 custom-slide">
+              <SwiperSlide key={item.maPhim} className="swiperPlayingMovies-slide -mx-5 custom-slide">
                 <Card style={{backgroundColor: 'transparent'}} >
                   <div className="playingMovieHeader">
                     <Card.Img variant="top" className="playingMovieImg" src={item.hinhAnh} alt={item.biDanh} onClick={() => navigate(`/movies/${item.maPhim}`)}/>

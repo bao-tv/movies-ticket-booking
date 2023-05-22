@@ -203,6 +203,10 @@
                         }
                         .movieDetail_right{
                             margin-right: 10px;
+                            .times:hover{
+                                color: #38bdf8;
+                                background: white;       
+                        }
                             .movieName{
                                 font-weight: 600;
                                 color: $text-dark-color;

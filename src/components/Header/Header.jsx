@@ -39,7 +39,7 @@ function Header() {
               <i className="bi bi-chevron-down ms-2 fs-7"></i>
             </span>
             <Animated
-              className="position-absolute z-10"
+              className="position-absolute z-3"
               animationIn="fadeInUp"
               animationOut="fadeOutUp"
               animationInDuration={300}
@@ -78,7 +78,7 @@ function Header() {
             }}
           ><span className={style.textHeaderHover} onClick={() => setIsVisibleLichChieu(!isVisibleLichChieu)}>Lịch chiếu<i className="bi bi-chevron-down ms-2 fs-7"></i></span>
             <Animated
-              className="position-absolute z-10"
+              className="position-absolute z-3"
               animationIn="fadeInUp"
               animationOut="fadeOutUp"
               animationInDuration={300}
@@ -100,10 +100,10 @@ function Header() {
             </Animated>
           </div>
 
-          <div className={`mx-3 py-6 py-6 ${style.textHeaderHover}`}>Phim chiếu</div>
-          <div className={`mx-3 py-6 py-6 ${style.textHeaderHover}`}> Review phim</div>
+          <div className={`mx-2 py-6 ${style.textHeaderHover}`}>Phim chiếu</div>
+          <div className={`mx-2 py-6 ${style.textHeaderHover}`}> Review phim</div>
           <div
-            className="mx-3 py-6 position-relative"
+            className="mx-2 py-6 position-relative"
             onMouseLeave={() => {
               if (!window.matchMedia("(max-width: 1024px)").matches) {
                 setIsVisibleBlockChieu(false);
@@ -117,7 +117,7 @@ function Header() {
           >
           <span className={style.textHeaderHover} onClick={() => setIsVisibleBlockChieu(!isVisibleBlockChieu)}>Block phim<i className="bi bi-chevron-down ms-2 fs-7"></i></span>
           <Animated
-              className="position-absolute z-10"
+              className="position-absolute z-3"
               animationIn="fadeInUp"
               animationOut="fadeOutUp"
               animationInDuration={300}
@@ -138,7 +138,7 @@ function Header() {
             </Animated>
           </div>
 
-          <div className={`mx-3 py-6 ${style.textHeaderHover}`}>
+          <div className={`mx-2 py-6 ${style.textHeaderHover}`}>
             Khuyến mãi
           </div>
           <button className={`${style.navBar} ${style.navClose}`} onClick={showNavbar}>

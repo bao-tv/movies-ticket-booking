@@ -54,7 +54,6 @@ function MovieForm({ onShow, handleShow, onDataMovieDetail }) {
   const [movieUpdate, setMovieUpdate] = useState(null);
 //   console.log(movieUpdate);
   const [err, setErr] = useState(null);
-  console.log(err?.response.data.message);
   const [isLoading, setIsLoading] = useState(false);
 
     // ========= set type date =======================
@@ -70,7 +69,7 @@ function MovieForm({ onShow, handleShow, onDataMovieDetail }) {
       setIsLoading(false);
       setErr(null);
       swal({
-        title: `Bạn đã cập nhật thành công phim: ${payload.tenPhim}`,
+        title: `Bạn đã cập nhật thành công phim: ${payload?.tenPhim}`,
         text: "Nhấn Ok để tiếp tục!",
         icon: "success",
         })

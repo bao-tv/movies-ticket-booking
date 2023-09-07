@@ -56,8 +56,7 @@ function MovieAddNew() {
 
   // từ API
   const [err, setErr] = useState(null);
-  console.log('err from API: ',err);
-
+// console.log("err API: ",err);
   const [isLoading, setIsLoading] = useState(false);
 
   // ==========set type img =======================
@@ -102,7 +101,7 @@ function MovieAddNew() {
   };
   // error form
   function onErrer(err) {
-    console.log('err from form: ',err);
+    // console.log('err from form: ',err);
     setErr(err);
   }
 
@@ -137,7 +136,7 @@ function MovieAddNew() {
               <div className="col-10">
                 {err?.tenPhim && (
                    <p className="ms-3 mb-0 fs-7 text-danger fst-italic">
-                   {err.tenPhim?.message}
+                   {err?.tenPhim?.message}
                    </p>
                 )}
               </div>
@@ -152,7 +151,7 @@ function MovieAddNew() {
             <div className="row mb-1 align-items-center">
               <div className="col-2"></div>
               <div className="col-10">
-                {err.tenPhim && (
+                {err?.trailer && (
                    <p className="ms-3 mb-0 fs-7 text-danger fst-italic">
                    {err?.trailer?.message}
                    </p>
@@ -186,7 +185,7 @@ function MovieAddNew() {
             <div className="row">
               <div className="col-2"></div>
               <div className="col-10">
-              {err?.tenPhim && (
+              {err?.ngayKhoiChieu && (
                    <p className="ms-3 mb-0 fs-7 text-danger fst-italic">
                    {err?.ngayKhoiChieu?.message}
                    </p>
@@ -236,7 +235,7 @@ function MovieAddNew() {
             <div className="row mb-1 align-items-center">
               <div className="col-2"></div>
               <div className="col-10">
-                {err.tenPhim && (
+                {err?.danhGia && (
                    <p className="ms-3 mb-0 fs-7 text-danger fst-italic">
                    {err?.danhGia?.message}
                    </p>
